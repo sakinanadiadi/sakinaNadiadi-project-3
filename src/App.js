@@ -53,10 +53,12 @@ function App() {
   return (
     <div className="App">
       <header>
+      <div className="headerContainer">
         <h1>Moviessss</h1>
-        <p>Some text realated to App!</p>
-      </header>
-      <section className="form">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        </div>
+      <div className="form">
         <form action="#" onSubmit={handleSubmit}>
           <label htmlFor="search" className="sr-only"></label>
           <input
@@ -67,13 +69,17 @@ function App() {
             onChange={inputHandleChange}
             placeholder="search for the movie or tv shows"
           />
+          <button>Search</button>
         </form>
-      </section>
+      </div>
+            </header>
+
       <main>
-      
+      <section className="movieContainer">
         {movieArray.map((movieObj) => {
           return <Result movieObj={movieObj} key={movieObj.id} />;
         })}
+        </section>
       </main>
     </div>
   );

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Domine&display=swap");
+
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -224,12 +226,24 @@ html {
 
 /* CSS STYLING STARTS HERE */
 
+html {
+  font-size: 62.5%;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   background-image: url(./bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
+  font-size: 2rem;
+  color: #fff;
+  /* font-family: "Domine", serif; */
 }
 
 .App {
@@ -250,28 +264,10 @@ img {
   object-fit: cover;
 }
 
-/* Movie result */
+/* Movie Results */
 
-.mainResult {
-  display: flex;
-  flex-direction: row;
+.movie {
+  width: 300px;
 }
 
-.movieResult {
-  background: wheat;
-  display: flex;
-  flex-direction: column;
-  margin: 100px 0;
-}
 
-/* .movieResult */
-
-/* .resultImage {
-  width: calc(40% - 50px);
-  margin-right: 50px;
-}
-
-.resultDeatils {
-  width: calc(60% - 50px);
-  margin-left: 50px;
-} */

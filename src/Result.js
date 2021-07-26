@@ -5,23 +5,17 @@ function Result(props) {
     props.movieObj;
 
   return (
-    <div className="mainResult">
-      <div className="movieResult">
-        <div className="resultImage">
-          <img
-            src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
-            alt={`Movie poster for ${title}`}
-          />
-        </div>
-        <div className="resultDeatils">
-          <h2>{title}</h2>
-          <ul>
-            <li>{release_date}</li>
-            <li>{vote_average}</li>
-            <li>{overview}</li>
-          </ul>
-        </div>
-      </div>
+    <div className="movie ">
+            <img
+              src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+              alt={`Movie poster for ${title}`}
+            />
+            <div className="movieInfo">
+            <h3>{title}</h3>
+          {release_date}
+          <span>{vote_average}</span>
+          {overview}
+          </div>
     </div>
   );
 }

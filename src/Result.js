@@ -14,6 +14,11 @@ function Result(props) {
       }
     };
 
+    // Event listner to delete the movie
+    const handleDelete = (keyToDeleteMovie) => {
+      console.log(keyToDeleteMovie);
+    }
+
   return (
     <div className="movie ">
           <div className="movieImage">

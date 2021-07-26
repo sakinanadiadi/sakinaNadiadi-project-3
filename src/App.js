@@ -2,6 +2,7 @@ import "./App.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Result from "./Result";
+import reel from "./reel.png"
 
 function App() {
   // 2... initialize state
@@ -57,6 +58,7 @@ function App() {
         <h1>Moviessss</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </p>
+        <img src={reel} alt="png image of reel" />
         </div>
       <div className="form">
         <form action="#" onSubmit={handleSubmit}>

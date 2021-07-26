@@ -274,10 +274,18 @@ header {
   margin: 200px 0 50px 35px;
   display:flex;
   justify-content: space-between;
+  position: relative
 }
 
 .headerContainer {
   width: 40%
+}
+
+.headerContainer img {
+  position: absolute;
+  top: -200px;
+  right: +60px;
+  width: 70%
 }
 
 .form {

@@ -265,38 +265,38 @@ img {
 }
 p,
 button {
-  letter-spacing: 1.5px
+  letter-spacing: 1.5px;
 }
 
 /* Header */
 
 header {
   margin: 200px 0 50px 35px;
-  display:flex;
+  display: flex;
   justify-content: space-between;
-  position: relative
+  position: relative;
 }
 
 .headerContainer {
-  width: 40%
+  width: 40%;
 }
 
-.headerContainer img {
+/* .headerContainer img {
   position: absolute;
   top: -200px;
   right: +60px;
-  width: 70%
-}
+  width: 70%;
+} */
 
 .form {
   margin: 125px 35px 0 0;
-  width: 40%
+  width: 40%;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  align-items: center
+  align-items: center;
 }
 
 #search {
@@ -304,31 +304,29 @@ form {
   padding: 15px;
   border-radius: 50px;
   border: 2px solid black;
-  }
+}
 
-  .form button {
-    width: 30%;
-    padding: 15px;
-    border-radius: 50px;
-    margin-top: 20px;
-    border: 2px solid black;
+.form button {
+  width: 30%;
+  padding: 15px;
+  border-radius: 50px;
+  margin-top: 20px;
+  border: 2px solid black;
+}
 
-  }
-
-  .form button:hover,
-  .form button:focus {
-    background-color: #000;
-    color: #fff;
-    border: 2px solid #fff;
-
-  }
+.form button:hover,
+.form button:focus {
+  background-color: #000;
+  color: #fff;
+  border: 2px solid #fff;
+}
 
 /* Movie Results */
 
-.movieContainer{
+.movieContainer {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap
+  flex-wrap: wrap;
 }
 
 .movie {
@@ -338,36 +336,57 @@ form {
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   margin: 15px;
-  position: relative
+  position: relative;
 }
 
 .movieImage {
-  position: relative
+  position: relative;
+}
+
+.movieImage span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  background: #6b2222;
+  opacity: 0.5;
+}
+
+.movieImage span:hover,
+.movieImage span:focus {
+  border: 2px solid #fff;
+}
+
+.faicons {
+  font-size: 50px;
+  padding: 8px;
+  color: #fff;
+  cursor: pointer;
 }
 
 .movieImage p {
-position: absolute;
-top: 0;
-left: 0;
-background-color: #000;
-border: 2px solid #fff;
-padding:5px
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  border: 2px solid #fff;
+  padding: 5px;
 }
 
 .movieImage button {
   position: absolute;
   top: 0;
-  right:0
+  right: 0;
 }
 
-.movieInfo{
+.movieInfo {
   display: flex;
   justify-content: space-between;
-  padding: 10px ;
+  padding: 10px;
 }
 
 .movieInfo h3 {
-  letter-spacing: 1.5px
+  letter-spacing: 1.5px;
 }
 
 .movieOver {
@@ -375,59 +394,57 @@ padding:5px
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.1);
-  position:absolute;
+  position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   transform: translateY(102%);
   transition: transform 0.3s ease-in-out;
   overflow: auto;
-  max-height:100%;
+  max-height: 100%;
   padding: 20px;
-  text-align: center
+  text-align: center;
 }
 
 .movieOver h2 {
   padding: 20px 0;
   letter-spacing: 1.5px;
-  color: #6b2222
+  color: #6b2222;
 }
 
 .movie:hover .movieOver {
-  transform: translateY(0)
+  transform: translateY(0);
 }
 
 .movieOver button {
-padding: 10px;
-border-radius: 15px;
-border: 2px solid #000;
-margin-top: 25px
+  padding: 10px;
+  border-radius: 25px;
+  border: 2px solid #000;
+  margin-top: 25px;
 }
 
 .movieOver button:hover,
 .movieOver button:focus {
   background-color: #6b2222;
   border: 2px solid #fff;
-  color: #fff
+  color: #fff;
 }
 
 .tag {
   background-color: #000;
   border-radius: 5px;
   padding: 10px;
-  font-weight: bold
+  font-weight: bold;
 }
 
 .tag.green {
-color: green;
+  color: green;
 }
 
 .tag.orange {
-  color: orange;  
+  color: orange;
 }
 
 .tag.red {
   color: red;
 }
-
-

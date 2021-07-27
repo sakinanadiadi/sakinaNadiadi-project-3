@@ -5,7 +5,9 @@ import Result from "./Result";
 import reel from "./reel.png";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import Roll from "react-reveal/Roll";
 // import RecentlyViewed from "./RecentlyViewed";
+// import Slide from "react-reveal/Slide";
 
 library.add(faTimes);
 
@@ -57,27 +59,31 @@ function App() {
     <div className="App">
       <header>
         <div className="headerContainer">
-          <h1>Moviessss</h1>
+          <Roll left>
+            <h1>Filmy</h1>
+          </Roll>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat.
           </p>
-          <img src={reel} alt="png image of reel" />
+          <img src={reel} alt="some reel" />
         </div>
         <div className="form">
-          <form action="#" onSubmit={handleSubmit}>
-            <label htmlFor="search" className="sr-only"></label>
-            <input
-              type="text"
-              id="search"
-              value={userInput}
-              onChange={inputHandleChange}
-              placeholder="search for the movie or tv shows"
-            />
-            <button>Search</button>
-          </form>
+          <Roll right>
+            <form action="#" onSubmit={handleSubmit}>
+              <label htmlFor="search" className="sr-only"></label>
+              <input
+                type="text"
+                id="search"
+                value={userInput}
+                onChange={inputHandleChange}
+                placeholder="search for the movie or tv shows"
+              />
+              <button>Search</button>
+            </form>
+          </Roll>
         </div>
       </header>
 

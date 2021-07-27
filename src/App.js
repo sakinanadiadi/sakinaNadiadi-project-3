@@ -6,6 +6,7 @@ import reel from "./reel.png";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import Roll from "react-reveal/Roll";
+import Footer from "./Footer";
 // import RecentlyViewed from "./RecentlyViewed";
 // import Slide from "react-reveal/Slide";
 
@@ -98,6 +99,8 @@ function App() {
           {/* <RecentlyViewed /> */}
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 }

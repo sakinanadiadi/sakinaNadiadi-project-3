@@ -448,3 +448,21 @@ form {
 .tag.red {
   color: red;
 }
+
+/* Footer */
+
+footer {
+  margin-top: 50px;
+  text-align: center;
+}
+
+footer a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 22px;
+}
+
+footer a:hover,
+footer a:focus {
+  color: orange;
+}

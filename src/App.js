@@ -1,10 +1,12 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import Result from "./Result";
-import reel from "./reel.png";
+import reel from "./images/reel.png";
+import clapperboard from "./images/clapperboard.png";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+// import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faVideo, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Roll from "react-reveal/Roll";
 import Footer from "./Footer";
@@ -12,23 +14,25 @@ import AddFavourite from "./AddFavourite";
 import RemoveFavourities from "./RemoveFavourites";
 import firebase from "./firebase";
 
-// import RecentlyViewed from "./RecentlyViewed";
 // import Slide from "react-reveal/Slide";
 
-library.add(faTrash);
-library.add(faHeart);
+library.add(faTrash, faVideo, faHeart);
+// library.add(faHeart);
+// library.add(faVideo);
 
 function App() {
   // 2... initialize state
   const [movieArray, setMovieArray] = useState([]);
   const [userInput, setUserInput] = useState("");
+  const [submitValue, setSubmitValue] = useState("");
   const [favourites, setFavourites] = useState([]);
 
-  const getResult = async (userInput) => {
-    const url = `https://api.themoviedb.org/3/search/movie?api_key=46db2b181f46bc95d47d6bc10ae9bd13&query=${userInput}`;
+  const getResult = async (movieSearch) => {
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=46db2b181f46bc95d47d6bc10ae9bd13&query=${movieSearch}`;
 
     const response = await fetch(url);
     const responseJson = await response.json();
+    console.log(responseJson);
 
     if (responseJson.results) {
       setMovieArray(responseJson.results);
@@ -36,35 +40,34 @@ function App() {
   };
 
   useEffect(() => {
-    getResult(userInput);
-  }, [userInput]);
+    getResult(submitValue);
+  }, [submitValue]);
 
   useEffect(() => {
     const dbRef = firebase.database().ref();
     dbRef.on("value", (snapshot) => {
       console.log(snapshot);
       const myData = snapshot.val();
-      console.log(myData);
+      // console.log(myData);
       const newArray = [];
       for (let item in myData) {
-        // console.log(item);
+        // console.log(myData[item].adult);
 
         const movieList = {
           key: item,
-          image: myData[item],
+          poster_path: myData[item].poster_path,
+          title: myData[item].title,
+          release_date: myData[item].release_date,
+          overview: myData[item].overview,
+          vote_average: myData[item].vote_average,
         };
         // console.log(movieList);
         newArray.push(movieList);
       }
-      console.log(newArray);
+      // console.log(newArray);
       setFavourites(newArray);
     });
   }, []);
-
-  // Saving things on the page
-  // const saveToLocalStorage = (items) => {
-  //   localStorage.setItem("react-movie-app-favourites", JSON.stringify(items));
-  // };
 
   // Event listener for input change
   const inputHandleChange = (event) => {
@@ -74,8 +77,7 @@ function App() {
   // event listener for submit
   const handleSubmit = (event) => {
     event.preventDefault();
-    const dbRef = firebase.database().ref();
-    dbRef.push(userInput);
+    setSubmitValue(userInput);
     setUserInput("");
   };
 
@@ -84,7 +86,8 @@ function App() {
   const addFavouriteMovie = (movie) => {
     const newFavouriteList = [...favourites, movie];
     setFavourites(newFavouriteList);
-    // saveToLocalStorage(newFavouriteList);
+    const dbRef = firebase.database().ref();
+    dbRef.push(movie);
   };
 
   // Event listner for removing the favorite movie
@@ -102,30 +105,36 @@ function App() {
       <header>
         <div className="headerContainer">
           <Roll left>
-            <h1>Filmy</h1>
+            <h1> Filmy Studio</h1>
+            <img src={reel} alt="some reel" />
           </Roll>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </p>
-          <img src={reel} alt="some reel" />
+
+          <div className="form">
+            <Roll right>
+              <form action="#" onSubmit={handleSubmit}>
+                <label htmlFor="search" className="sr-only"></label>
+                <input
+                  type="text"
+                  id="search"
+                  value={userInput}
+                  onChange={inputHandleChange}
+                  placeholder="Search for the movies"
+                />
+                <span>
+                  <FontAwesomeIcon className="faicons, video" icon="video" />
+                </span>
+                <button>Search</button>
+              </form>
+            </Roll>
+          </div>
         </div>
-        <div className="form">
-          <Roll right>
-            <form action="#" onSubmit={handleSubmit}>
-              <label htmlFor="search" className="sr-only"></label>
-              <input
-                type="text"
-                id="search"
-                value={userInput}
-                onChange={inputHandleChange}
-                placeholder="search for the movie or tv shows"
-              />
-              <button>Search</button>
-            </form>
-          </Roll>
+
+        <div className="headerPara">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis
+            tempore commodi officia aliquam in veritatis saepe omnis perferendis
+            excepturi cum!
+          </p>
         </div>
       </header>
 

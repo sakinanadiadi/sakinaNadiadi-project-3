@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Domine&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&family=Ubuntu&display=swap");
 
 html {
   line-height: 1.15;
@@ -236,14 +236,14 @@ html {
 }
 
 body {
-  background-image: url(./bg.jpg);
+  background-image: url(./images/newBG.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
   font-size: 2rem;
   color: #fff;
-  /* font-family: "Domine", serif; */
+  font-family: "Ubuntu", sans-serif;
 }
 
 .App {
@@ -253,44 +253,61 @@ body {
 }
 
 h1 {
-  font-size: 70px;
+  font-size: 60px;
   letter-spacing: 8px;
   text-transform: uppercase;
-  margin: 50px 0;
+  margin: 30px 0;
+  font-family: "Merriweather", serif;
+  width: 30%;
+}
+
+h2 {
+  font-family: "Merriweather", serif;
+  margin: 30px 0;
 }
 
 img {
   max-width: 100%;
   object-fit: cover;
 }
+
 p,
 button {
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
+  font-size: 22px;
 }
+
+/* .faicons {
+  color: #6b2222;
+} */
 
 /* Header */
 
-header {
-  margin: 200px 0 50px 35px;
+/* header {
   display: flex;
   justify-content: space-between;
-  position: relative;
-}
-
-.headerContainer {
-  width: 40%;
-}
-
-/* .headerContainer img {
-  position: absolute;
-  top: -200px;
-  right: +60px;
-  width: 70%;
 } */
 
-.form {
-  margin: 125px 35px 0 0;
+.headerContainer {
+  /* width: 40%; */
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.headerContainer img {
+  position: absolute;
+  top: 0px;
+  right: 550px;
   width: 40%;
+  z-index: -1;
+}
+
+.form {
+  /* margin: 125px 35px 0 0; */
+  margin-top: 70px;
+  width: 35%;
+  position: relative;
 }
 
 form {
@@ -304,10 +321,23 @@ form {
   padding: 15px;
   border-radius: 50px;
   border: 2px solid black;
+  padding-left: 40px;
+  color: #6b2222;
+}
+
+.form span {
+  position: absolute;
+  top: 12px;
+  right: 30px;
+  color: #6b2222;
+}
+
+.video {
+  font-size: 30px;
 }
 
 .form button {
-  width: 30%;
+  width: 150px;
   padding: 15px;
   border-radius: 50px;
   margin-top: 20px;
@@ -315,15 +345,22 @@ form {
 }
 
 .form button:hover,
-.form button:focus {
+.form button:focus,
+.form button:active {
   background-color: #000;
   color: #fff;
   border: 2px solid #fff;
 }
 
+.headerPara p {
+  font-size: 20px;
+  width: 70%;
+}
+
 /* Movie Results */
 
 .movieContainer {
+  margin: 50px 0;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -407,7 +444,6 @@ form {
 }
 
 .movieOver h2 {
-  padding: 20px 0;
   letter-spacing: 1.5px;
   color: #6b2222;
 }
@@ -417,10 +453,17 @@ form {
 }
 
 .movieOver button {
-  padding: 10px;
+  padding: 15px;
   border-radius: 25px;
-  border: 2px solid #000;
+  border: 2px solid #6b2222;
   margin-top: 25px;
+  color: #6b2222;
+  cursor: pointer;
+}
+
+.heart {
+  color: #000;
+  font-size: 40px;
 }
 
 .movieOver button:hover,
@@ -429,6 +472,10 @@ form {
   border: 2px solid #fff;
   color: #fff;
 }
+
+/* .movieOver button span {
+  padding-bottom: 10px;
+} */
 
 .tag {
   background-color: #000;
@@ -452,8 +499,9 @@ form {
 /* Footer */
 
 footer {
-  margin-top: 50px;
+  margin-top: 20px;
   text-align: center;
+  padding-bottom: 20px;
 }
 
 footer a {
@@ -465,4 +513,15 @@ footer a {
 footer a:hover,
 footer a:focus {
   color: orange;
+}
+
+/* Media Query */
+@media (max-width: 1291px) {
+  .headerContainer img {
+    right: 450px;
+    width: 35%;
+  }
+}
+
+@media (max-width: 1001px) {
 }

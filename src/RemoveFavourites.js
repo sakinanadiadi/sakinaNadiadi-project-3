@@ -5,7 +5,7 @@ function RemoveFavourities() {
     <div>
       <span>
         Remove
-        <FontAwesomeIcon className="faicons" icon="trash" />
+        {/* <FontAwesomeIcon className="faicons" icon="trash" /> */}
       </span>
     </div>
   );

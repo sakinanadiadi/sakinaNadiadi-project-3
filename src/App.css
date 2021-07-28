@@ -264,6 +264,12 @@ h1 {
 h2 {
   font-family: "Merriweather", serif;
   margin: 30px 0;
+  letter-spacing: 2px;
+}
+
+h3 {
+  font-family: "Merriweather", serif;
+  letter-spacing: 2px;
 }
 
 img {
@@ -277,16 +283,7 @@ button {
   font-size: 22px;
 }
 
-/* .faicons {
-  color: #6b2222;
-} */
-
 /* Header */
-
-/* header {
-  display: flex;
-  justify-content: space-between;
-} */
 
 .headerContainer {
   /* width: 40%; */
@@ -297,9 +294,9 @@ button {
 
 .headerContainer img {
   position: absolute;
-  top: 0px;
-  right: 550px;
-  width: 40%;
+  top: 10px;
+  left: 110px;
+  width: 47%;
   z-index: -1;
 }
 
@@ -320,20 +317,29 @@ form {
   width: 100%;
   padding: 15px;
   border-radius: 50px;
-  border: 2px solid black;
+  border: 2px solid #771611;
   padding-left: 40px;
-  color: #6b2222;
+  color: #fff;
+  background-color: #771611;
+  opacity: 0.7;
+}
+
+#search:hover,
+#search:focus,
+#search:active {
+  border: 2px solid #fff;
 }
 
 .form span {
   position: absolute;
   top: 12px;
   right: 30px;
-  color: #6b2222;
+  /* color: #6b2222; */
 }
 
 .video {
   font-size: 30px;
+  opacity: 0.5;
 }
 
 .form button {
@@ -352,9 +358,12 @@ form {
   border: 2px solid #fff;
 }
 
+.headerPara {
+  width: 70%;
+}
+
 .headerPara p {
   font-size: 20px;
-  width: 70%;
 }
 
 /* Movie Results */
@@ -367,7 +376,13 @@ form {
 }
 
 .movie {
-  background-color: #6b2222;
+  /* background-color: #5f0602; */
+  background: rgb(95, 6, 2);
+  background: radial-gradient(
+    circle,
+    rgba(95, 6, 2, 0.8978466386554622) 50%,
+    rgba(0, 0, 0, 0.7942051820728291) 100%
+  );
   width: 300px;
   border-radius: 3px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
@@ -385,7 +400,7 @@ form {
   top: 0;
   right: 0;
   margin: 10px;
-  background: #6b2222;
+  background: #771611;
   opacity: 0.5;
 }
 
@@ -445,7 +460,7 @@ form {
 
 .movieOver h2 {
   letter-spacing: 1.5px;
-  color: #6b2222;
+  color: #771611;
 }
 
 .movie:hover .movieOver {
@@ -455,9 +470,9 @@ form {
 .movieOver button {
   padding: 15px;
   border-radius: 25px;
-  border: 2px solid #6b2222;
+  border: 2px solid #771611;
   margin-top: 25px;
-  color: #6b2222;
+  color: #771611;
   cursor: pointer;
 }
 
@@ -468,7 +483,7 @@ form {
 
 .movieOver button:hover,
 .movieOver button:focus {
-  background-color: #6b2222;
+  background-color: #771611;
   border: 2px solid #fff;
   color: #fff;
 }
@@ -516,12 +531,112 @@ footer a:focus {
 }
 
 /* Media Query */
-@media (max-width: 1291px) {
+
+@media (min-width: 1356px) {
   .headerContainer img {
-    right: 450px;
-    width: 35%;
+    width: 50%;
   }
 }
 
-@media (max-width: 1001px) {
+/* @media (max-width: 1001px) {
+} */
+
+@media (max-width: 1015px) {
+  h1 {
+    font-size: 50px;
+  }
+  .headerPara p {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 973px) {
+  h1 {
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .headerContainer {
+    flex-wrap: wrap;
+  }
+
+  .headerContainer img {
+    display: none;
+  }
+
+  .form {
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+
+  .headerPara {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 717px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  .form {
+    width: 55%;
+  }
+
+  #search {
+    padding: 10px;
+  }
+
+  .form span {
+    top: 10px;
+  }
+
+  .video {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 560px) {
+  h1 {
+    font-size: 35px;
+  }
+  h2 {
+    font-size: 25px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  .form {
+    width: 60%;
+  }
+
+  #search {
+    padding: 7px;
+  }
+
+  .form span {
+    top: 7px;
+    right: 15px;
+  }
+
+  .favouriteContainer h2 {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 455px) {
+  .form {
+    width: 70%;
+  }
+}
+
+@media (max-width: 400px) {
+  .form {
+    width: 80%;
+  }
 }

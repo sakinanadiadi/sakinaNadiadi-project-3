@@ -2,7 +2,6 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import Result from "./Result";
 import reel from "./images/reel.png";
-import clapperboard from "./images/clapperboard.png";
 import { library } from "@fortawesome/fontawesome-svg-core";
 // import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faHeart, faVideo, faTrash } from "@fortawesome/free-solid-svg-icons";
@@ -123,7 +122,7 @@ function App() {
                 <span>
                   <FontAwesomeIcon className="faicons, video" icon="video" />
                 </span>
-                <button>Search</button>
+                {/* <button>Search</button> */}
               </form>
             </Roll>
           </div>
@@ -155,7 +154,7 @@ function App() {
         <section>
           <div className="favouriteContainer">
             <Roll left>
-              <h2>Favourites:</h2>
+              <h2>Favourites</h2>
             </Roll>
           </div>
 

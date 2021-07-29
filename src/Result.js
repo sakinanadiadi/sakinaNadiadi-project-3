@@ -1,8 +1,6 @@
 import React from "react";
 
 function Result(props) {
-  console.log("LOOK HERE", props.movieObj);
-
   const { title, overview, poster_path, release_date, vote_average } =
     props.movieObj;
 

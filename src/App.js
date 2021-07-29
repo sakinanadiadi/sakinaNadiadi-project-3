@@ -3,8 +3,7 @@ import { useState, useEffect } from "react";
 import Result from "./Result";
 import reel from "./images/reel.png";
 import { library } from "@fortawesome/fontawesome-svg-core";
-// import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { faHeart, faVideo, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faVideo } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Roll from "react-reveal/Roll";
@@ -13,11 +12,7 @@ import AddFavourite from "./AddFavourite";
 import RemoveFavourities from "./RemoveFavourites";
 import firebase from "./firebase";
 
-// import Slide from "react-reveal/Slide";
-
-library.add(faTrash, faVideo, faHeart);
-// library.add(faHeart);
-// library.add(faVideo);
+library.add(faVideo);
 
 function App() {
   // 2... initialize state
@@ -31,7 +26,6 @@ function App() {
 
     const response = await fetch(url);
     const responseJson = await response.json();
-    console.log(responseJson);
 
     if (responseJson.results) {
       setMovieArray(responseJson.results);
@@ -45,13 +39,10 @@ function App() {
   useEffect(() => {
     const dbRef = firebase.database().ref();
     dbRef.on("value", (snapshot) => {
-      console.log(snapshot);
+      // console.log(snapshot);
       const myData = snapshot.val();
-      // console.log(myData);
       const newArray = [];
       for (let item in myData) {
-        // console.log(myData[item].adult);
-
         const movieList = {
           key: item,
           poster_path: myData[item].poster_path,
@@ -60,10 +51,8 @@ function App() {
           overview: myData[item].overview,
           vote_average: myData[item].vote_average,
         };
-        // console.log(movieList);
         newArray.push(movieList);
       }
-      // console.log(newArray);
       setFavourites(newArray);
     });
   }, []);
@@ -81,7 +70,6 @@ function App() {
   };
 
   // event listener for favourite movie
-
   const addFavouriteMovie = (movie) => {
     const newFavouriteList = [...favourites, movie];
     setFavourites(newFavouriteList);
@@ -122,7 +110,6 @@ function App() {
                 <span>
                   <FontAwesomeIcon className="faicons, video" icon="video" />
                 </span>
-                {/* <button>Search</button> */}
               </form>
             </Roll>
           </div>

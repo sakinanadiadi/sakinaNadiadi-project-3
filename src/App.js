@@ -6,7 +6,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faVideo } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import Roll from "react-reveal/Roll";
+import Fade from "react-reveal/Roll";
 import Footer from "./Footer";
 import AddFavourite from "./AddFavourite";
 import RemoveFavourities from "./RemoveFavourites";
@@ -15,12 +15,13 @@ import firebase from "./firebase";
 library.add(faVideo);
 
 function App() {
-  // 2... initialize state
+  //  initialize state to hold movies from API, userinput,search valur and favourites list.
   const [movieArray, setMovieArray] = useState([]);
   const [userInput, setUserInput] = useState("");
   const [submitValue, setSubmitValue] = useState("");
   const [favourites, setFavourites] = useState([]);
 
+  // Calling the API into the variable
   const getResult = async (movieSearch) => {
     const url = `https://api.themoviedb.org/3/search/movie?api_key=46db2b181f46bc95d47d6bc10ae9bd13&query=${movieSearch}`;
 
@@ -32,14 +33,15 @@ function App() {
     }
   };
 
+  // Calling API (getResult) into useEffect
   useEffect(() => {
     getResult(submitValue);
   }, [submitValue]);
 
+  // useEffect to store favourite movies into the state.
   useEffect(() => {
     const dbRef = firebase.database().ref();
     dbRef.on("value", (snapshot) => {
-      // console.log(snapshot);
       const myData = snapshot.val();
       const newArray = [];
       for (let item in myData) {
@@ -91,13 +93,13 @@ function App() {
     <div className="App">
       <header>
         <div className="headerContainer">
-          <Roll left>
+          <Fade left>
             <h1> Filmy Studio</h1>
             <img src={reel} alt="some reel" />
-          </Roll>
+          </Fade>
 
           <div className="form">
-            <Roll right>
+            <Fade right>
               <form action="#" onSubmit={handleSubmit}>
                 <label htmlFor="search" className="sr-only"></label>
                 <input
@@ -111,16 +113,17 @@ function App() {
                   <FontAwesomeIcon className="faicons, video" icon="video" />
                 </span>
               </form>
-            </Roll>
+            </Fade>
           </div>
         </div>
 
         <div className="headerPara">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis
-            tempore commodi officia aliquam in veritatis saepe omnis perferendis
-            excepturi cum!
-          </p>
+          <Fade left>
+            <p>
+              One stop destination to get a collection of highly rated movies
+              and TV shows, which you can add to your favourites.
+            </p>
+          </Fade>
         </div>
       </header>
 
@@ -140,9 +143,9 @@ function App() {
 
         <section>
           <div className="favouriteContainer">
-            <Roll left>
+            <Fade left>
               <h2>Favourites</h2>
-            </Roll>
+            </Fade>
           </div>
 
           <div className="movieContainer">

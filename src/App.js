@@ -69,6 +69,10 @@ function App() {
     event.preventDefault();
     setSubmitValue(userInput);
     setUserInput("");
+
+    if (userInput === "") {
+      alert("Please enter a movie");
+    }
   };
 
   // event listener for favourite movie

@@ -4,6 +4,10 @@ function Result(props) {
   const { title, overview, poster_path, release_date, vote_average } =
     props.movieObj;
 
+  if (poster_path === null) {
+    return null;
+  }
+
   const FavouriteComponent = props.favouriteComponent;
 
   const imageUrl = "https://image.tmdb.org/t/p/w1280";

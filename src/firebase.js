@@ -2,13 +2,14 @@ import firebase from "firebase/app";
 import "firebase/database";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDE-9wwRBQDKLc7qF2RdyruyBnXSvZR3YM",
-  authDomain: "movielistapp-4e859.firebaseapp.com",
-  projectId: "movielistapp-4e859",
-  storageBucket: "movielistapp-4e859.appspot.com",
-  messagingSenderId: "875464350549",
-  appId: "1:875464350549:web:af98710f4cb392eac9eddc",
+  apiKey: "AIzaSyDrZWsffVw0s8DwiUcFPp55MAgTzPTqHQE",
+  authDomain: "newmovielist-13601.firebaseapp.com",
+  projectId: "newmovielist-13601",
+  storageBucket: "newmovielist-13601.appspot.com",
+  messagingSenderId: "169925917105",
+  appId: "1:169925917105:web:36b0e01582e5d85f7a6590"
 };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
